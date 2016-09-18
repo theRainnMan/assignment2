@@ -39,7 +39,11 @@ defmodule Ex04 do
       [ 1, 2, 3, 4, 5 ]
 
   """
-  def reverse . . . "your code"
+defmodule Ex04 do                       
+ def reverse list do                    
+  Enum.reduce list, [], &[&1 | &2]      
+ end
+end
 
   ##############################################################################
   # 4.2:  5 points #
@@ -55,7 +59,11 @@ defmodule Ex04 do
 
   """
 
-  def min . . . "your code"
+defmodule Ex04 do                    
+ def min list do                     
+  Enum.reduce list, &min(&1, &2)     
+ end
+end
 
   ##############################################################################
   # 4.3: 10 points #
@@ -75,7 +83,19 @@ defmodule Ex04 do
   return value will be the thing you have to manipulate.
   """
 
-  def even_odd . . . "your code"
+  defmodule Ex04 do
+    def even_odd list do
+     Enum.reduce list, { [], [] }, fn (item, { even, odd }) ->
+    cond do
+     Integer.is_even(item) ->
+      { [ item | even ], odd }             
+     true ->
+      { even, [ item | odd ] }
+    end
+    { Ex04.reverse.even, Ex04.reverse.odd } ## still have problem in reverse two lists in a tuple
+   end
+  end
+ end
 
 
 
