@@ -55,7 +55,18 @@ defmodule Ex03 do
 
   """
 
-  def odd_even . . . "your code"
+defmodule Ex03 do                          
+ def odd_even list do                      
+  Enum.reduce list, [], fn (item, list1) ->
+    cond do                                 
+     Integer.is_even(item) ->               
+      [:even | list1]                       
+     true ->
+      [:odd | list1]
+    end
+  end
+ end
+end
 
 
   ##############################################################################
@@ -77,7 +88,12 @@ defmodule Ex03 do
 
   """
 
-  def list_contains . .. "your code"
+defmodule Ex03 do                                           
+  def list_contains(list, a) do                              
+   Enum.reduce list, false, fn (item, state) ->              
+    if item == a, do: true || state, else: false || state end
+  end                                                       
+end
 
   ##############################################################################
   # 3.3:  5 points #
@@ -101,7 +117,19 @@ defmodule Ex03 do
 
   """
 
-  def list_equal . . . "your code"
+  defmodule Ex03 do
+   def list_equal [], [] do "true" end
+   def list_equal list1, list2 do
+    cond do
+     length(list1) != length(list2) ->
+      "false"
+     hd(list1) == hd(list2) ->
+      list_equal tl(list1), tl(list2)
+     true ->
+      "false"
+    end
+   end
+  end
 
 
 
@@ -149,7 +177,46 @@ defmodule Ex03 do
   Think a little about a nice way to lay this code out.
   """
 
-  def won . . . "your code"
+defmodule Ex03 do
+  def won {a1, b1, c1, a2, b2, c2, a3, b3, c3} do
+   cond do
+    a1 == :x && b1 == :x && c1 == :x ->
+     ":x"
+    a2 == :x && b2 == :x && c2 == :x -> 
+     ":x"
+    a3 == :x && b3 == :x && c3 == :x ->
+     ":x"
+    a1 == :x && a2 == :x && a3 == :x ->
+     ":x"
+    b1 == :x && b2 == :x && b3 == :x ->
+     ":x"
+    c1 == :x && c2 == :x && c3 == :x ->
+     ":x"
+    a1 == :x && b2 == :x && c3 == :x ->
+     ":x"
+    a3 == :x && b2 == :x && c1 == :x ->
+     ":x"
+    a1 == :o && b1 == :o && c1 == :o ->
+     ":o"
+    a2 == :o && b2 == :o && c2 == :o ->
+     ":o"
+    a3 == :o && b3 == :o && c3 == :o ->
+     ":o"
+    a1 == :o && a2 == :o && a3 == :o ->
+     ":o"
+    b1 == :o && b2 == :o && b3 == :o ->
+     ":o"
+    c1 == :o && c2 == :o && c3 == :o ->
+     ":o"
+    a1 == :o && b2 == :o && c3 == :o ->
+     ":o"
+    a3 == :o && b2 == :o && c1 == :o ->
+     ":o"
+    true ->
+     "false"
+    end
+  end
+end
 
 
   ###########################
